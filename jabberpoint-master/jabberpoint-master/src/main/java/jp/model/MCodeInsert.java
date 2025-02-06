@@ -40,7 +40,6 @@ public class MCodeInsert extends M {
 	}
 
 	boolean shown;
-
 	public void draw(int x, int y, Graphics g, Style s, ImageObserver o) {
 		g.setFont(s.getFont());
 		g.setColor(s.getColor());
