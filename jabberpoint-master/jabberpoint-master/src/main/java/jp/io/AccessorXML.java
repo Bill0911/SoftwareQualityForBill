@@ -28,7 +28,7 @@ public abstract class AccessorXML extends AbstractAccessor {
 	/**
 	 * Load a file and scan.
 	 */
-	public abstract void loadFile(Model mod, String fn) throws IOException;
+	//public abstract void loadFile(Model mod, String fn) throws IOException;
 
 	/**
 	 * Save a file in XML.
