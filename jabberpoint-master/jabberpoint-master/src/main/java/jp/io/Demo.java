@@ -52,7 +52,7 @@ class Demo extends AbstractAccessor {
 		m.append(s);
 	}
 
-	public void saveFile(Model m, String unusedFilename) {
+		public void saveFile(Model m, String unusedFilename) {
 		throw new IllegalStateException("Called Save As->Demo!");
 	}
 }
