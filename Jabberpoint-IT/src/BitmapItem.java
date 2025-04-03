@@ -39,7 +39,6 @@ public class BitmapItem extends SlideItem {
 		}
 	}
 
-// An empty bitmap-item
 	public BitmapItem() {
 		this(0, null);
 	}
