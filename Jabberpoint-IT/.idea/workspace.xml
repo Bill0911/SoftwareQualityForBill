@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e936555-3b78-4a0f-95cb-9904856ee08d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClearPresentationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClearPresentationCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/DemoPresentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/DemoPresentation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/JabberPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/JabberPoint.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DemoPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemoPresentation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JabberPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JabberPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NextSlideCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NextSlideCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PrevSlideCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PrevSlideCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SetTitleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SetTitleCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Slide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Slide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XMLAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XMLAccessor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +60,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Fjodor\OneDrive\software_quality\SoftwareQualityForBill\Jabberpoint-IT" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
@@ -105,7 +101,7 @@
       <workItem from="1743713014576" duration="5189000" />
       <workItem from="1743718956960" duration="68000" />
       <workItem from="1743799401881" duration="3634000" />
-      <workItem from="1743803240156" duration="321000" />
+      <workItem from="1743803240156" duration="1343000" />
     </task>
     <servers />
   </component>

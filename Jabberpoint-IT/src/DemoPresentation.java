@@ -14,6 +14,8 @@ import java.io.IOException;
 class DemoPresentation extends Accessor {
 
 	public void loadFile(Presentation presentation, String unusedFilename) {
+		System.out.println("DemoPresentation.loadFile()<");
+
 		presentation.setToTitle("Demo Presentation");
 		Slide slide;
 		slide = new Slide();
@@ -47,8 +49,10 @@ class DemoPresentation extends Accessor {
 		slide.append(2, "use File->Open from the menu.");
 		slide.append(1, " ");
 		slide.append(1, "This is the end of the presentation.");
-		slide.append(new BitmapItem(1, "JabberPoint.jpg"));
+		slide.append(new BitmapItem(1, "JabberPoint.gif"));
 		presentation.append(slide);
+
+		System.out.println(">");
 	}
 
 	public void saveFile(Presentation presentation, String filename) {

@@ -45,6 +45,7 @@ public class Presentation {
 	}
 
 	public void setToSlideNumber(int number) {
+		System.out.println("presentation.setToSlideNumber()<...>");
 		commandManager.executeCommand(new SetToSlideNumberCommand(this, number));
 	}
 

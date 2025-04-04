@@ -29,9 +29,13 @@ public class JabberPoint {
 		new SlideViewerFrame(JABVERSION, presentation);
 		try {
 			if (argv.length == 0) { // een demo presentatie
+				System.out.println("Accessor.getDemoAccessor().loadFile()<");
 				Accessor.getDemoAccessor().loadFile(presentation, "");
+				System.out.println(">");
 			} else {
+				System.out.println("XMLAccessor.loadFile()<");
 				new XMLAccessor().loadFile(presentation, argv[0]);
+				System.out.print(">");
 			}
 			presentation.setToSlideNumber(0);
 		} catch (IOException ex) {
