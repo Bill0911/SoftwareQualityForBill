@@ -1,3 +1,6 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
 /** A built in demo-presentation
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
@@ -11,7 +14,7 @@
 class DemoPresentation extends Accessor {
 
 	public void loadFile(Presentation presentation, String unusedFilename) {
-		presentation.setTitle("Demo Presentation");
+		presentation.setToTitle("Demo Presentation");
 		Slide slide;
 		slide = new Slide();
 		slide.setTitle("JabberPoint");
@@ -48,7 +51,31 @@ class DemoPresentation extends Accessor {
 		presentation.append(slide);
 	}
 
-	public void saveFile(Presentation presentation, String unusedFilename) {
-		throw new IllegalStateException("Save As->Demo! called");
+	public void saveFile(Presentation presentation, String filename) {
+		try (FileWriter writer = new FileWriter(filename)) {
+			writer.write("<presentation title=\"" + presentation.getTitle() + "\">\n");
+
+			for (int i = 0; i < presentation.getSize(); i++) {
+				Slide slide = presentation.getSlide(i);
+				writer.write("  <slide>\n");
+				writer.write("    <title>" + slide.getTitle() + "</title>\n");
+
+				for (SlideItem item : slide.getSlideItems()) {
+					writer.write("    <item level=\"" + item.getLevel() + "\"");
+
+					if (item instanceof TextItem) {
+						writer.write(" kind=\"text\">" + ((TextItem) item).getText() + "</item>\n");
+					} else if (item instanceof BitmapItem) {
+						writer.write(" kind=\"image\">" + ((BitmapItem) item).getName() + "</item>\n");
+					}
+				}
+
+				writer.write("  </slide>\n");
+			}
+
+			writer.write("</presentation>\n");
+		} catch (IOException e) {
+			System.err.println("Error saving demo presentation: " + e.getMessage());
+		}
 	}
 }

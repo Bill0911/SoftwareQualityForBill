@@ -45,7 +45,7 @@ public class Slide {
 	public void append(int level, String content) {
 		SlideItem newItem;
 
-		if (content.endsWith(".png") || content.endsWith(".jpg")) {
+		if (content.endsWith(".png") || content.endsWith(".jpg") || content.endsWith(".gif")) {
 			newItem = bitmapItemFactory.createSlideItem(level, content);
 		} else {
 			newItem = textItemFactory.createSlideItem(level, content);
@@ -54,11 +54,6 @@ public class Slide {
 		items.add(newItem);
 	}
 	// give the  SlideItem
-	public SlideItem getSlideItem(int number) {
-		return (SlideItem)items.elementAt(number);
-	}
-
-	// give all SlideItems in a Vector
 	public Vector<SlideItem> getSlideItems() {
 		return items;
 	}

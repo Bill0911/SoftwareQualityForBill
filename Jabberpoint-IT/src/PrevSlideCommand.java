@@ -10,12 +10,12 @@ public class PrevSlideCommand implements Command {
     public void execute() {
         prevSlideNumber = presentation.getSlideNumber();
         if (presentation.getSlideNumber() > 0) {
-            presentation.setSlideNumber(presentation.getSlideNumber() - 1);
+            presentation.setToSlideNumber(presentation.getSlideNumber() - 1);
         }
     }
 
     @Override
     public void undo() {
-        presentation.setSlideNumber(prevSlideNumber);
+        presentation.setToSlideNumber(prevSlideNumber);
     }
 }

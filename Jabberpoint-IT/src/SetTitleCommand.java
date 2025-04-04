@@ -1,7 +1,7 @@
 public class SetTitleCommand implements Command {
     private Presentation presentation;
     private String newTitle;
-    private String previousTitle;
+    private String oldTitle;
 
     public SetTitleCommand(Presentation presentation, String newTitle) {
         this.presentation = presentation;
@@ -10,12 +10,12 @@ public class SetTitleCommand implements Command {
 
     @Override
     public void execute() {
-        previousTitle = presentation.getTitle();
+        oldTitle = presentation.getTitle();
         presentation.setTitle(newTitle);
     }
 
     @Override
     public void undo() {
-        presentation.setTitle(previousTitle);
+        presentation.setTitle(oldTitle);
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Presentation {
 	private String showTitle; // Title of the presentation
-	private List<Slide> showList; // A list of slides
+	private List<Slide> showList = new ArrayList<>(); // A list of slides
 	private int currentSlideNumber = 0; // Index of the current slide
 	private SlideViewerComponent slideViewComponent; // Viewer component for slides
 	private CommandManager commandManager; // Manages command execution
@@ -32,8 +32,8 @@ public class Presentation {
 		return showTitle;
 	}
 
-	public void setTitle(String title) {
-		this.showTitle = title;
+	public void setToTitle(String title) {
+		commandManager.executeCommand(new SetTitleCommand(this, title));
 	}
 
 	public void setShowView(SlideViewerComponent slideViewerComponent) {
@@ -44,8 +44,8 @@ public class Presentation {
 		return currentSlideNumber;
 	}
 
-	public void setSlideNumber(int number) {
-		commandManager.executeCommand(new SetSlideNumberCommand(this, number));
+	public void setToSlideNumber(int number) {
+		commandManager.executeCommand(new SetToSlideNumberCommand(this, number));
 	}
 
 	public void prevSlide() {
@@ -71,6 +71,14 @@ public class Presentation {
 		return showList.get(number);
 	}
 
+	public void setSlideNumber(int number) {
+		this.currentSlideNumber = number;
+	}
+
+	public void setTitle(String title) {
+		this.showTitle = title;
+	}
+
 	public Slide getCurrentSlide() {
 		return getSlide(currentSlideNumber);
 	}
@@ -80,6 +88,9 @@ public class Presentation {
 	}
 
 	public List<Slide> getSlides() {
+		if (showList == null) {
+			showList = new ArrayList<>();
+		}
 		return showList;
 	}
 

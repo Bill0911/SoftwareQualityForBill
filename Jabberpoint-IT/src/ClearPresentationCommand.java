@@ -18,13 +18,13 @@ public class ClearPresentationCommand implements Command {
 
         // Clear the presentation
         presentation.getSlides().clear();
-        presentation.setSlideNumber(-1);
+        presentation.setToSlideNumber(-1);
     }
 
     @Override
     public void undo() {
         // Restore previous state
         presentation.getSlides().addAll(previousSlides);
-        presentation.setSlideNumber(previousSlideNumber);
+        presentation.setToSlideNumber(previousSlideNumber);
     }
 }
