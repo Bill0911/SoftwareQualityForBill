@@ -53,6 +53,8 @@ class DemoPresentation extends Accessor {
 		presentation.append(slide);
 
 		System.out.println(">");
+
+		System.out.println("Presentation slides list: " + presentation.getSlides());
 	}
 
 	public void saveFile(Presentation presentation, String filename) {

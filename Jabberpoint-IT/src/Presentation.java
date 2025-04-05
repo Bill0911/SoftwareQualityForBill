@@ -21,7 +21,6 @@ public class Presentation {
 	public Presentation(SlideViewerComponent slideViewerComponent) {
 		this.slideViewComponent = slideViewerComponent;
 		this.commandManager = new CommandManager();
-		clear();
 	}
 
 	public int getSize() {
@@ -45,7 +44,7 @@ public class Presentation {
 	}
 
 	public void setToSlideNumber(int number) {
-		System.out.println("presentation.setToSlideNumber()<...>");
+		System.out.println("presentation.setToSlideNumber("+number+")<...>");
 		commandManager.executeCommand(new SetToSlideNumberCommand(this, number));
 	}
 
