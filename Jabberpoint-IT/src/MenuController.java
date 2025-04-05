@@ -66,6 +66,25 @@ public class MenuController extends MenuBar {
 			}
 		} );
 		fileMenu.add(menuItem = mkMenuItem(NEW));
+
+		fileMenu.add(menuItem = mkMenuItem("Add Slide"));
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				String title = JOptionPane.showInputDialog(parent, "Enter slide title:");
+				String content = JOptionPane.showInputDialog(parent, "Enter slide content:");
+
+				if (title != null && content != null) {
+					Slide newSlide = new Slide();
+					newSlide.setTitle(title);
+					newSlide.append(new TextItem(1, content)); // You can change 1 to 0 if needed
+
+					presentation.append(newSlide); // Uses AddSlideCommand internally
+					presentation.setToSlideNumber(presentation.getSize() - 1); // Jump to new slide
+					parent.repaint(); // Refresh view
+				}
+			}
+		});
+
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.clear();
