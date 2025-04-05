@@ -118,4 +118,8 @@ public class Presentation {
 		}
 		return showList;
 	}
+
+	public CommandManager getCommandManager() {
+		return commandManager;
+	}
 }

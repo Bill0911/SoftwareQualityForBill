@@ -120,6 +120,30 @@ public class MenuController extends MenuBar {
 			}
 		});
 
+		fileMenu.add(menuItem = mkMenuItem("Undo"));
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				presentation.getCommandManager().undo();
+			}
+		});
+
+		fileMenu.add(menuItem = mkMenuItem("Redo"));
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				presentation.getCommandManager().redo();
+			}
+		});
+
+		fileMenu.add(menuItem = mkMenuItem("Rename Title"));
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String newTitle = JOptionPane.showInputDialog(parent, "Enter new title for the presentation:");
+				if (newTitle != null && !newTitle.isEmpty()) {
+					presentation.setToTitle(newTitle);  // 
+				}
+			}
+		});
+
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
