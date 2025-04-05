@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="306f975e-e85f-46d6-800e-94ffb1e1d1e3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Fjodor_Smorodins.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dump.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dump.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +36,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "add-slide",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Fjodor/OneDrive/software_quality/Jabberpoint-IT-with-patterns-and-issues",
+    "last_opened_file_path": "C:/Users/Fjodor/OneDrive/software_quality/SoftwareQualityForBill/Jabberpoint-IT/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,6 +45,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Fjodor\OneDrive\software_quality\SoftwareQualityForBill\Jabberpoint-IT\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Fjodor\OneDrive\software_quality\SoftwareQualityForBill\Jabberpoint-IT" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JabberPoint" />

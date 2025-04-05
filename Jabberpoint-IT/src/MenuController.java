@@ -5,9 +5,12 @@ import java.awt.MenuItem;
 import java.awt.MenuShortcut;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /** <p>The controller for the menu</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
@@ -55,6 +58,7 @@ public class MenuController extends MenuBar {
 		fileMenu.add(menuItem = mkMenuItem(OPEN));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
+				System.out.println("Open (Ctrl + O)");
 				presentation.clear();
 				Accessor xmlAccessor = new XMLAccessor();
 				try {
@@ -79,26 +83,47 @@ public class MenuController extends MenuBar {
 		fileMenu.add(menuItem = mkMenuItem(ADDSLIDE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
+				// Step 1: Get the title and text input from the user
 				String title = JOptionPane.showInputDialog(parent, "Enter slide title:");
 				String content = JOptionPane.showInputDialog(parent, "Enter slide content:");
 
-				if (title != null && content != null) {
-					System.out.println("Add Slide (Ctrl + A)");
+				// Step 2: Create a new slide and append text items
+				Slide newSlide = new Slide();
+				newSlide.setTitle(title);
+				newSlide.append(1, content);  // Add text content with a level (e.g., 1)
 
-					Slide newSlide = new Slide();
-					newSlide.setTitle(title);
-					newSlide.append(new TextItem(1, content)); // You can change 1 to 0 if needed
+				// Step 3: Ask the user if they want to add an image
+				int imageOption = JOptionPane.showConfirmDialog(parent, "Would you like to add an image?", "Add Image", JOptionPane.YES_NO_OPTION);
 
-					presentation.append(newSlide); // Uses AddSlideCommand internally
-					presentation.setToSlideNumber(presentation.getSize() - 1); // Jump to new slide
-					parent.repaint(); // Refresh view
+				if (imageOption == JOptionPane.YES_OPTION) {
+					// Step 4: Open a file chooser for the user to select an image
+					JFileChooser fileChooser = new JFileChooser();
+					fileChooser.setFileFilter(new FileNameExtensionFilter("Image files", "jpg", "png", "gif"));
+					int result = fileChooser.showOpenDialog(parent);
+
+					if (result == JFileChooser.APPROVE_OPTION) {
+						// Get the selected image file path
+						File selectedFile = fileChooser.getSelectedFile();
+						String imagePath = selectedFile.getPath();
+
+						// Step 5: Create a BitmapItem and add it to the slide
+						newSlide.append(new BitmapItem(1, imagePath));  // Using level 1 for image
+					}
 				}
+
+				// Step 6: Add the slide to the presentation
+				presentation.append(newSlide);
+
+				// Step 7: Optionally, jump to the new slide (if you want to show it right away)
+				presentation.setToSlideNumber(presentation.getSize() - 1);
+				parent.repaint();
 			}
 		});
 
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Save (Ctrl + S)");
 				Accessor xmlAccessor = new XMLAccessor();
 				try {
 					xmlAccessor.saveFile(presentation, SAVEFILE);
