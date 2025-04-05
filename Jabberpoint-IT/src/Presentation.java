@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -19,14 +20,17 @@ public class Presentation {
 	private int currentSlideNumber = 0; // the slidenummer of the current Slide
 	private SlideViewerComponent slideViewComponent = null; // the viewcomponent of the Slides
 
+	private CommandManager commandManager;
+
 	public Presentation() {
 		slideViewComponent = null;
+		this.commandManager = new CommandManager();
 		clear();
 	}
 
 	public Presentation(SlideViewerComponent slideViewerComponent) {
 		this.slideViewComponent = slideViewerComponent;
-		clear();
+		this.commandManager = new CommandManager();
 	}
 
 	public int getSize() {
@@ -35,6 +39,11 @@ public class Presentation {
 
 	public String getTitle() {
 		return showTitle;
+	}
+
+	public void setToTitle(String title) {
+		System.out.println("pres.setToTitle('"+title+"')");
+		commandManager.executeCommand(new SetTitleCommand(this, title));
 	}
 
 	public void setTitle(String nt) {
@@ -51,6 +60,11 @@ public class Presentation {
 	}
 
 	// change the current slide number and signal it to the window
+	public void setToSlideNumber(int number) {
+		System.out.println("presentation.setToSlideNumber("+number+")");
+		commandManager.executeCommand(new SetToSlideNumberCommand(this, number));
+	}
+
 	public void setSlideNumber(int number) {
 		System.out.println("setSlideNumber("+number+")");
 
@@ -60,29 +74,25 @@ public class Presentation {
 		}
 	}
 
-	// go to the previous slide unless your at the beginning of the presentation
 	public void prevSlide() {
-		if (currentSlideNumber > 0) {
-			setSlideNumber(currentSlideNumber - 1);
-	    }
+		System.out.println("prevSlide~");
+		commandManager.executeCommand(new PrevSlideCommand(this));
 	}
 
-	// go to the next slide unless your at the end of the presentation.
 	public void nextSlide() {
-		if (currentSlideNumber < (showList.size()-1)) {
-			setSlideNumber(currentSlideNumber + 1);
-		}
+		System.out.println("nextSlide~");
+		commandManager.executeCommand(new NextSlideCommand(this));
 	}
 
 	// Delete the presentation to be ready for the next one.
-	void clear() {
-		showList = new ArrayList<Slide>();
-		setSlideNumber(-1);
+	public void clear() {
+		commandManager.executeCommand(new ClearPresentationCommand(this));
 	}
 
 	// Add a slide to the presentation
 	public void append(Slide slide) {
-		showList.add(slide);
+		System.out.println("pres.append()");
+		commandManager.executeCommand(new AddSlideCommand(this, slide));
 	}
 
 	// Get a slide with a certain slidenumber
@@ -100,5 +110,12 @@ public class Presentation {
 
 	public void exit(int n) {
 		System.exit(n);
+	}
+
+	public List<Slide> getSlides() {
+		if (showList == null) {
+			showList = new ArrayList<>();
+		}
+		return showList;
 	}
 }

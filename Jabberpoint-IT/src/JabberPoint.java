@@ -35,7 +35,7 @@ public class JabberPoint {
 				System.out.println("ZMLAccessor");
 				new XMLAccessor().loadFile(presentation, argv[0]);
 			}
-			presentation.setSlideNumber(0);
+			presentation.setToSlideNumber(0);
 		} catch (IOException ex) {
 			JOptionPane.showMessageDialog(null,
 					IOERR + ex, JABERR,

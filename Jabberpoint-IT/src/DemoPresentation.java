@@ -11,7 +11,7 @@
 class DemoPresentation extends Accessor {
 
 	public void loadFile(Presentation presentation, String unusedFilename) {
-		presentation.setTitle("Demo Presentation");
+		presentation.setToTitle("Demo Presentation");
 		Slide slide;
 		slide = new Slide();
 		slide.setTitle("JabberPoint");

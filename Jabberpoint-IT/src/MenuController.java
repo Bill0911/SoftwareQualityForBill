@@ -57,7 +57,7 @@ public class MenuController extends MenuBar {
 				Accessor xmlAccessor = new XMLAccessor();
 				try {
 					xmlAccessor.loadFile(presentation, TESTFILE);
-					presentation.setSlideNumber(0);
+					presentation.setToSlideNumber(0);
 				} catch (IOException exc) {
 					JOptionPane.showMessageDialog(parent, IOEX + exc, 
          			LOADERR, JOptionPane.ERROR_MESSAGE);
@@ -110,7 +110,7 @@ public class MenuController extends MenuBar {
 			public void actionPerformed(ActionEvent actionEvent) {
 				String pageNumberStr = JOptionPane.showInputDialog((Object)PAGENR);
 				int pageNumber = Integer.parseInt(pageNumberStr);
-				presentation.setSlideNumber(pageNumber - 1);
+				presentation.setToSlideNumber(pageNumber - 1);
 			}
 		});
 		add(viewMenu);
