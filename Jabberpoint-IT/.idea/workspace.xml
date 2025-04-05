@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="306f975e-e85f-46d6-800e-94ffb1e1d1e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/PresentationObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/checkstyle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/AddSlideCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JabberPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JabberPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SlideViewerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlideViewerComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SlideViewerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlideViewerFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-IT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Jabberpoint-IT.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +42,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Unnamed.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "observer",
@@ -52,6 +56,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -87,7 +95,7 @@
       <workItem from="1743876303238" duration="12000" />
       <workItem from="1743876657256" duration="87000" />
       <workItem from="1743876815285" duration="2628000" />
-      <workItem from="1743880298076" duration="2435000" />
+      <workItem from="1743880298076" duration="3988000" />
     </task>
     <servers />
   </component>
@@ -113,5 +121,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
