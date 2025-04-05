@@ -16,9 +16,6 @@ import java.util.Vector;
 public class Slide {
 	public final static int WIDTH = 1200;
 	public final static int HEIGHT = 800;
-
-	private SlideItemFactory textItemFactory = new TextItemFactory();
-	private SlideItemFactory bitmapItemFactory = new BitmapItemFactory();
 	protected String title; // title is saved separately
 	protected Vector<SlideItem> items; // slide items are saved in a Vector
 
@@ -42,18 +39,16 @@ public class Slide {
 	}
 
 	// Create TextItem of String, and add the TextItem 
-	public void append(int level, String content) {
-		SlideItem newItem;
-
-		if (content.endsWith(".png") || content.endsWith(".jpg") || content.endsWith(".gif")) {
-			newItem = bitmapItemFactory.createSlideItem(level, content);
-		} else {
-			newItem = textItemFactory.createSlideItem(level, content);
-		}
-
-		items.add(newItem);
+	public void append(int level, String message) {
+		append(new TextItem(level, message));
 	}
+
 	// give the  SlideItem
+	public SlideItem getSlideItem(int number) {
+		return (SlideItem)items.elementAt(number);
+	}
+
+	// give all SlideItems in a Vector
 	public Vector<SlideItem> getSlideItems() {
 		return items;
 	}

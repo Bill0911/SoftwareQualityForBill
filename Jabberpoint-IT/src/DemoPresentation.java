@@ -1,6 +1,3 @@
-import java.io.FileWriter;
-import java.io.IOException;
-
 /** A built in demo-presentation
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
@@ -14,9 +11,7 @@ import java.io.IOException;
 class DemoPresentation extends Accessor {
 
 	public void loadFile(Presentation presentation, String unusedFilename) {
-		System.out.println("DemoPresentation.loadFile()<");
-
-		presentation.setToTitle("Demo Presentation");
+		presentation.setTitle("Demo Presentation");
 		Slide slide;
 		slide = new Slide();
 		slide.setTitle("JabberPoint");
@@ -51,37 +46,9 @@ class DemoPresentation extends Accessor {
 		slide.append(1, "This is the end of the presentation.");
 		slide.append(new BitmapItem(1, "JabberPoint.gif"));
 		presentation.append(slide);
-
-		System.out.println(">");
-
-		System.out.println("Presentation slides list: " + presentation.getSlides());
 	}
 
-	public void saveFile(Presentation presentation, String filename) {
-		try (FileWriter writer = new FileWriter(filename)) {
-			writer.write("<presentation title=\"" + presentation.getTitle() + "\">\n");
-
-			for (int i = 0; i < presentation.getSize(); i++) {
-				Slide slide = presentation.getSlide(i);
-				writer.write("  <slide>\n");
-				writer.write("    <title>" + slide.getTitle() + "</title>\n");
-
-				for (SlideItem item : slide.getSlideItems()) {
-					writer.write("    <item level=\"" + item.getLevel() + "\"");
-
-					if (item instanceof TextItem) {
-						writer.write(" kind=\"text\">" + ((TextItem) item).getText() + "</item>\n");
-					} else if (item instanceof BitmapItem) {
-						writer.write(" kind=\"image\">" + ((BitmapItem) item).getName() + "</item>\n");
-					}
-				}
-
-				writer.write("  </slide>\n");
-			}
-
-			writer.write("</presentation>\n");
-		} catch (IOException e) {
-			System.err.println("Error saving demo presentation: " + e.getMessage());
-		}
+	public void saveFile(Presentation presentation, String unusedFilename) {
+		throw new IllegalStateException("Save As->Demo! called");
 	}
 }
