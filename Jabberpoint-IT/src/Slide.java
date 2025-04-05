@@ -16,6 +16,9 @@ import java.util.Vector;
 public class Slide {
 	public final static int WIDTH = 1200;
 	public final static int HEIGHT = 800;
+
+	private SlideItemFactory textItemFactory = new TextItemFactory();
+	private SlideItemFactory bitmapItemFactory = new BitmapItemFactory();
 	protected String title; // title is saved separately
 	protected Vector<SlideItem> items; // slide items are saved in a Vector
 
@@ -38,17 +41,19 @@ public class Slide {
 		title = newTitle;
 	}
 
-	// Create TextItem of String, and add the TextItem 
-	public void append(int level, String message) {
-		append(new TextItem(level, message));
-	}
+	// Create TextItem of String, and add the TextItem
+	public void append(int level, String content) {
+		SlideItem newItem;
 
+		if (content.endsWith(".png") || content.endsWith(".jpg") || content.endsWith(".gif")) {
+			newItem = bitmapItemFactory.createSlideItem(level, content);
+		} else {
+			newItem = textItemFactory.createSlideItem(level, content);
+		}
+
+		items.add(newItem);
+	}
 	// give the  SlideItem
-	public SlideItem getSlideItem(int number) {
-		return (SlideItem)items.elementAt(number);
-	}
-
-	// give all SlideItems in a Vector
 	public Vector<SlideItem> getSlideItems() {
 		return items;
 	}
@@ -61,19 +66,19 @@ public class Slide {
 	// draw the slide
 	public void draw(Graphics g, Rectangle area, ImageObserver view) {
 		float scale = getScale(area);
-	    int y = area.y;
-	// Title is handled separately
-	    SlideItem slideItem = new TextItem(0, getTitle());
-	    Style style = Style.getStyle(slideItem.getLevel());
-	    slideItem.draw(area.x, y, scale, g, style, view);
-	    y += slideItem.getBoundingBox(g, view, scale, style).height;
-	    for (int number=0; number<getSize(); number++) {
-	      slideItem = (SlideItem)getSlideItems().elementAt(number);
-	      style = Style.getStyle(slideItem.getLevel());
-	      slideItem.draw(area.x, y, scale, g, style, view);
-	      y += slideItem.getBoundingBox(g, view, scale, style).height;
-	    }
-	  }
+		int y = area.y;
+		// Title is handled separately
+		SlideItem slideItem = new TextItem(0, getTitle());
+		Style style = Style.getStyle(slideItem.getLevel());
+		slideItem.draw(area.x, y, scale, g, style, view);
+		y += slideItem.getBoundingBox(g, view, scale, style).height;
+		for (int number=0; number<getSize(); number++) {
+			slideItem = (SlideItem)getSlideItems().elementAt(number);
+			style = Style.getStyle(slideItem.getLevel());
+			slideItem.draw(area.x, y, scale, g, style, view);
+			y += slideItem.getBoundingBox(g, view, scale, style).height;
+		}
+	}
 
 	// Give the scale for drawing
 	private float getScale(Rectangle area) {
