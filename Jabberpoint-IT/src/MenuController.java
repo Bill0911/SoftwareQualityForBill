@@ -24,7 +24,9 @@ public class MenuController extends MenuBar {
 	private Presentation presentation; // Commands are given to the presentation
 	
 	private static final long serialVersionUID = 227L;
-	
+
+	protected static final String ADDSLIDE = "Add Slide";
+
 	protected static final String ABOUT = "About";
 	protected static final String FILE = "File";
 	protected static final String EXIT = "Exit";
@@ -66,14 +68,23 @@ public class MenuController extends MenuBar {
 			}
 		} );
 		fileMenu.add(menuItem = mkMenuItem(NEW));
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+				System.out.println("New (Ctrl + N)");
+				presentation.clear();
+				parent.repaint();
+			}
+		});
 
-		fileMenu.add(menuItem = mkMenuItem("Add Slide"));
+		fileMenu.add(menuItem = mkMenuItem(ADDSLIDE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				String title = JOptionPane.showInputDialog(parent, "Enter slide title:");
 				String content = JOptionPane.showInputDialog(parent, "Enter slide content:");
 
 				if (title != null && content != null) {
+					System.out.println("Add Slide (Ctrl + A)");
+
 					Slide newSlide = new Slide();
 					newSlide.setTitle(title);
 					newSlide.append(new TextItem(1, content)); // You can change 1 to 0 if needed
@@ -85,12 +96,6 @@ public class MenuController extends MenuBar {
 			}
 		});
 
-		menuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent actionEvent) {
-				presentation.clear();
-				parent.repaint();
-			}
-		});
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

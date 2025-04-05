@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="306f975e-e85f-46d6-800e-94ffb1e1d1e3" name="Changes" comment="" />
+    <list default="true" id="306f975e-e85f-46d6-800e-94ffb1e1d1e3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dump.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dump.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
