@@ -17,7 +17,7 @@ import javax.swing.JFrame;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class SlideViewerComponent extends JComponent {
+public class SlideViewerComponent extends JComponent implements PresentationObserver{
 		
 	private Slide slide; // current slide
 	private Font labelFont = null; // font for labels
@@ -34,12 +34,18 @@ public class SlideViewerComponent extends JComponent {
 	private static final int XPOS = 1100;
 	private static final int YPOS = 20;
 
-	public SlideViewerComponent(Presentation pres, JFrame frame) {
+	public SlideViewerComponent(JFrame frame) {
 		setBackground(BGCOLOR); 
-		presentation = pres;
 		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
 		this.frame = frame;
 	}
+
+	public void setPresentation(Presentation presentation) {
+        this.presentation = presentation;
+        this.presentation.addObserver(this); // Register as an observer
+        this.slide = presentation.getCurrentSlide();
+        repaint();
+    }
 
 	public Dimension getPreferredSize() {
 		return new Dimension(Slide.WIDTH, Slide.HEIGHT);
@@ -70,4 +76,19 @@ public class SlideViewerComponent extends JComponent {
 		Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
 		slide.draw(g, area, this);
 	}
+
+	@Override
+    public void update(Presentation presentation) {
+        this.presentation = presentation;
+
+        this.slide = presentation.getCurrentSlide();
+
+        if (frame != null) {
+            frame.setTitle(presentation.getTitle() + " - Slide " + (presentation.getSlideNumber() + 1) + " of " + presentation.getSize());
+        }
+
+        repaint();
+    }
+	
+
 }

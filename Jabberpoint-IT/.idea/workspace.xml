@@ -5,15 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="306f975e-e85f-46d6-800e-94ffb1e1d1e3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/PresentationObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JabberPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JabberPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SlideViewerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlideViewerComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SlideViewerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlideViewerFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -35,9 +44,9 @@
     "Application.Unnamed.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "testing",
+    "git-widget-placeholder": "observer",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Fjodor/OneDrive/software_quality/Jabberpoint-IT-with-patterns-and-issues",
+    "last_opened_file_path": "C:/Users/dober/Desktop/deadlineSoftware/SoftwareQualityForBill/Jabberpoint-IT",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,6 +64,14 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,6 +87,7 @@
       <workItem from="1743876303238" duration="12000" />
       <workItem from="1743876657256" duration="87000" />
       <workItem from="1743876815285" duration="2628000" />
+      <workItem from="1743880298076" duration="2435000" />
     </task>
     <servers />
   </component>
@@ -81,7 +99,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Presentation.java</url>
-          <line>83</line>
+          <line>100</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
