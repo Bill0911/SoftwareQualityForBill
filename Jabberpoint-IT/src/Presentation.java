@@ -79,10 +79,9 @@ public class Presentation {
 	}
 
 	public void setSlideNumber(int number) {
-
 		currentSlideNumber = number;
 		if (slideViewComponent != null) {
-			slideViewComponent.update(this, getCurrentSlide());
+			slideViewComponent.update(this);
 		}
 		notifyObservers();
 	}
@@ -106,6 +105,7 @@ public class Presentation {
 	// Add a slide to the presentation
 	public void append(Slide slide) {
 		commandManager.executeCommand(new AddSlideCommand(this, slide));
+		notifyObservers();
 	}
 
 	// Get a slide with a certain slidenumber

@@ -5,29 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="306f975e-e85f-46d6-800e-94ffb1e1d1e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/ClearPresentationCommandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/NextSlideCommandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/PresentationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/PrevSlideCommandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/SetTitleCommandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/SetToSlideNumberCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TestObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/BitmapItemTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/PresentationObserverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SlideItemFactoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SlideTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SlideViewerComponentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/TextItemTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/ClearPresentationCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/ClearPresentationCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/DemoPresentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/DemoPresentation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/JabberPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/JabberPoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/KeyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/KeyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/Presentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/Presentation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DemoPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DemoPresentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/AddSlideCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AddSlideCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideItemFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideItemFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideViewerComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideViewerComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SlideItemFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlideItemFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SlideViewerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlideViewerComponent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +156,20 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/TextItemFactory.java</url>
+          <line>2</line>
+          <properties class="TextItemFactory" method="createSlideItem">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/TextItemFactory.java</url>
+          <line>3</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
