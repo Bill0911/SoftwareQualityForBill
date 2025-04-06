@@ -9,6 +9,6 @@
             <property name="max" value="120"/>
         </module>
         <module name="MethodName"/>
-        <module name="VariableNameCheck"/>
+        <module name="com.puppycrawl.tools.checkstyle.checks.naming.VariableNameCheck"/>
     </module>
 </module>
