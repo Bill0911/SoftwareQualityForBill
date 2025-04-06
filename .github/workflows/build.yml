@@ -29,18 +29,24 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ~/.m2
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/JabberPoint/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
 
-    # Step 4: Build the project
+    # Step 4: Build the project (navigate to JabberPoint if needed)
     - name: Build with Maven
-      run: mvn clean install
+      run: |
+        cd Jabberpoint-IT
+        mvn clean install
 
     # Step 5: Run tests
     - name: Run Tests
-      run: mvn test
+      run: |
+        cd Jabberpoint-IT
+        mvn test
 
     # Step 6: Run Checkstyle
     - name: Run Checkstyle
-      run: mvn checkstyle:check
+      run: |
+        cd Jabberpoint-IT
+        mvn checkstyle:check
