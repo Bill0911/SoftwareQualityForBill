@@ -22,6 +22,8 @@ public class Presentation {
 
 	private CommandManager commandManager;
 
+	private List<PresentationObserver> observers = new ArrayList<>();
+
 	public Presentation() {
 		slideViewComponent = null;
 		this.commandManager = new CommandManager();
@@ -33,6 +35,17 @@ public class Presentation {
 		this.commandManager = new CommandManager();
 	}
 
+	public void addObserver(PresentationObserver observer) {
+		observers.add(observer);
+	}
+	public void removeObserver(PresentationObserver observer) {
+		observers.remove(observer);
+	}
+	public void notifyObservers() {
+		for (PresentationObserver observer : observers) {
+			observer.update(this);
+		}
+	}
 	public int getSize() {
 		return showList.size();
 	}
@@ -43,6 +56,7 @@ public class Presentation {
 
 	public void setToTitle(String title) {
 		commandManager.executeCommand(new SetTitleCommand(this, title));
+		notifyObservers();
 	}
 
 	public void setTitle(String nt) {
@@ -61,6 +75,7 @@ public class Presentation {
 	// change the current slide number and signal it to the window
 	public void setToSlideNumber(int number) {
 		commandManager.executeCommand(new SetToSlideNumberCommand(this, number));
+		notifyObservers();
 	}
 
 	public void setSlideNumber(int number) {
@@ -69,19 +84,23 @@ public class Presentation {
 		if (slideViewComponent != null) {
 			slideViewComponent.update(this, getCurrentSlide());
 		}
+		notifyObservers();
 	}
 
 	public void prevSlide() {
 		commandManager.executeCommand(new PrevSlideCommand(this));
+		notifyObservers();
 	}
 
 	public void nextSlide() {
 		commandManager.executeCommand(new NextSlideCommand(this));
+		notifyObservers();
 	}
 
 	// Delete the presentation to be ready for the next one.
 	public void clear() {
 		commandManager.executeCommand(new ClearPresentationCommand(this));
+		notifyObservers();
 	}
 
 	// Add a slide to the presentation
