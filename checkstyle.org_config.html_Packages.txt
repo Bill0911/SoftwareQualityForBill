@@ -1,0 +1,416 @@
+Content
+Content
+Overview
+Modules
+Properties
+Checker
+TreeWalker
+TreeWalker Checks
+Severity
+tabWidth
+Id
+Custom messages
+Filters
+Before Execution File Filters
+Audit Listeners
+Packages
+Configuration XML Structure
+Overview
+A Checkstyle configuration specifies which modules to plug in and apply to Java source files. Modules are structured in a tree whose root is the Checker module. The next level of modules contains:
+
+File Set Checks - modules that take a set of input files and fire violation messages.
+Filters - modules that filter audit events, including messages, for acceptance.
+Audit Listeners - modules that report accepted events.
+Many checks are submodules of the TreeWalker File Set Check module. The TreeWalker operates by separately transforming each of the Java source files into an abstract syntax tree and then handing the result over to each of its submodules which in turn have a look at certain aspects of the tree.
+
+Checkstyle obtains a configuration from an XML document whose elements specify the configuration's hierarchy of modules and their properties. You provide a file that contains the configuration document when you invoke Checkstyle at the command line, and when you run a Checkstyle task in ant. The documentation directory of the Checkstyle distribution contains a sample configuration file sun_checks.xml which configures Checkstyle to check for the Sun coding conventions.
+
+Modules
+A module element in the configuration XML document specifies a module identified by the element's name attribute.
+
+Here is a fragment of a typical configuration document:
+
+<module name="Checker">
+  <module name="JavadocPackage"/>
+  <module name="TreeWalker">
+    <module name="AvoidStarImport"/>
+    <module name="ConstantName"/>
+    <module name="EmptyBlock"/>
+  </module>
+</module>
+
+In this configuration:
+
+Root module Checker has child FileSetChecks JavadocPackage and TreeWalker. (Module JavadocPackage checks that all packages have package documentation.)
+Module TreeWalker has submodules AvoidStarImport, ConstantName, and EmptyBlock. (Modules AvoidStarImport, ConstantName, and EmptyBlock check that a Java source file has no star imports, has valid constant names, and has no empty blocks, respectively.)
+For each configuration module, Checkstyle loads a class identified by the name attribute of the module. There are several rules for loading a module's class:
+
+Load a class directly according to a package-qualified name, such as loading class com.puppycrawl.tools.checkstyle.TreeWalker for element:
+<module name="com.puppycrawl.tools.checkstyle.TreeWalker"/>
+
+This is useful for plugging third-party modules into a configuration.
+Load a class of a pre-specified package, such as loading class com.puppycrawl.tools.checkstyle.checks.AvoidStarImport for element
+<module name="AvoidStarImport"/>
+
+Checkstyle applies packages com.puppycrawl.tools.checkstyle, com.puppycrawl.tools.checkstyle.filters, and com.puppycrawl.tools.checkstyle.checks and its sub-packages (only those included in the Checkstyle distribution). You can specify other packages in a package names XML document when you invoke Checkstyle at the command line, and when you run a Checkstyle task in ant.
+Apply the above rules to name concatenated with "Check", such as loading class com.puppycrawl.tools.checkstyle.checks.ConstantNameCheck for element
+<module name="ConstantName"/>
+
+Properties
+Properties of a module control how the module performs its task. Each module property has a default value, and you are not required to define a property in the configuration document if the default value is satisfactory. To assign a non-default value to a module's property, define a child property element of the module element in the configuration XML document. Also provide appropriate name and value attributes for the property element. For example, property max of module MethodLength specifies the maximum allowable number of lines in a method or constructor, and has default value 150. Here is a configuration of module MethodLength so that the check reports methods and constructors with more than 60 lines:
+
+<module name="MethodLength">
+  <property name="max" value="60"/>
+</module>
+
+Command line properties and ant Checkstyle task properties apply to the root Checker module. Also, properties are inherited in the module hierarchy. These features make it easy to define one property value that applies to many modules. For example, the following configuration fragment specifies that a tabWidth of 4 applies to TreeWalker and its submodules:
+
+<module name="Checker">
+  <module name="JavadocPackage"/>
+  <module name="TreeWalker">
+    <property name="tabWidth" value="4"/>
+    <module name="AvoidStarImport"/>
+    <module name="ConstantName"/>
+    ...
+  </module>
+</module>
+
+The value of a module property can be specified through property expansion with the ${property_name} notation, where property_name is a command line property or an ant Checkstyle task property. For example, the following configuration document element gives property headerFile the value of command line property checkstyle.header.file:
+
+<module name="Header">
+  <property name="headerFile" value="${checkstyle.header.file}"/>
+</module>
+
+You can use property expansion to re-specify a module property value without changing the configuration document.
+
+The property element provides an optional default attribute which is used when a property in the value cannot be resolved. For example this configuration snippet from a central configuration file checks that methods have javadoc, but allows individual projects to override the severity by specifying their desired value in the command line property checkstyle.javadoc.severity:
+
+<module name="JavadocMethod">
+  <property name="severity"
+    value="${checkstyle.javadoc.severity}"
+    default="error"/>
+</module>
+
+ATTENTION: default value is applied to module property value if at least one expansion property is not defined.
+
+This feature is a great help when setting up a centralized configuration file (e.g. one file for the whole company) to lower configuration maintenance costs. Projects that are happy with the default can simply use that configuration file as is, but individual projects with special needs have the flexibility to adjust a few settings to fit their needs without having to copy and maintain the whole configuration.
+
+Apart from the above mentioned properties, there are a few system properties that changes the way how Checkstyle behaves. All the system properties can be found at the system properties page.
+
+You can find information about property types on Property Types page.
+
+Checker
+Description
+Since Checkstyle 3.0
+
+All configurations have root module Checker. Checker contains:
+
+File Set Check children: modules that check sets of files.
+Filter children: modules that filter audit events.
+File Filter children: modules that filter files for Checkstyle to process.
+Audit Listener children: modules that report filtered events.
+Checker also defines properties that are inherited by all other modules of a configuration.
+
+Properties
+name	description	type	default value	since
+basedir	Base directory name; stripped off in messages about files	String	null	3.0
+cacheFile	Caches information about files that have checked OK; used to avoid repeated checks of the same files	File	null (no cache file)	6.16
+charset	Name of the file charset	String	UTF-8	5.0
+fileExtensions	File extensions that are accepted	String[]	all files	6.3
+haltOnException	Whether to stop execution of Checkstyle if a single file produces any kind of exception during verification	boolean	true	7.4
+localeCountry	Locale country for messages	String (either the empty string or an uppercase ISO 3166 2-letter code)	default locale country for the Java Virtual Machine	3.0
+localeLanguage	Locale language for messages	String (either the empty string or a lowercase ISO 639 code)	default locale language for the Java Virtual Machine	3.0
+severity	The default severity level of all violations	SeverityLevel	error	3.1
+tabWidth	Number of expanded spaces for a tab character ('\t'); used in messages and Checks that print violations on files with tabs	int	8	8.19
+Metadata
+This tag is used to keep metadata in the Checkstyle configuration file. This information is ignored by Checkstyle. This may be useful if you want to store plug-in specific information or any other information in the config file.
+
+To avoid name clashes between different tools/plug-ins you are strongly encouraged to prefix all names with your domain name. For example, use the name "com.mycompany.parameter" instead of "parameter".
+Prefixes com.puppycrawl., net.sourceforge.checkstyle., org.checkstyle. are reserved for Checkstyle.
+Example:
+
+<module name="Checker">
+  <metadata name="com.myproject.cs-version" value="4.4"/>
+  <metadata name="com.myproject.cs-version.desc" value="legacy config"/>
+  ...
+</module>
+
+Examples
+For example, the following configuration fragment specifies base directory src/checkstyle, cache file target/cachefile and German locale for all modules:
+
+<module name="Checker">
+  <property name="basedir" value="src/checkstyle"/>
+  <property name="cacheFile" value="target/cachefile"/>
+  <property name="localeCountry" value="DE"/>
+  <property name="localeLanguage" value="de"/>
+  <module name="JavadocPackage"/>
+  <module name="TreeWalker">
+      ...
+  </module>
+</module>
+
+To configure a Checker so that it handles files with the ISO-8859-5 charset:
+
+<module name="Checker">
+  <property name="charset" value="ISO-8859-5"/>
+  ...
+</module>
+
+To configure a Checker so that it handles files with the java, xml, properties extensions:
+
+<module name="Checker">
+  <property name="fileExtensions" value="java, xml, properties"/>
+  ...
+</module>
+
+To configure a Checker so that it doesn't stop execution on an Exception and instead prints it as a violation:
+
+<module name="Checker">
+  <property name="haltOnException" value="false"/>
+  ...
+</module>
+
+To configure a Checker so that it handles files with any extension:
+
+<module name="Checker">
+  <property name="fileExtensions" value="null"/>
+  ...
+</module>
+
+OR
+
+<module name="Checker">
+  <property name="fileExtensions" value=""/>
+  ...
+</module>
+
+Example of Usage
+Google Style
+Sun Style
+Checkstyle Style
+Package
+com.puppycrawl.tools.checkstyle
+
+TreeWalker
+Description
+Since Checkstyle 3.0
+
+File Set Check TreeWalker checks individual Java source files and defines properties that are applicable to checking such files.
+
+Properties
+name	description	type	default value	since
+fileExtensions	File type extension to identify Java files. Setting this property is typically only required if your Java source code is preprocessed before compilation and the original files do not have the extension .java	String[]	.java	3.0
+javaParseExceptionSeverity	Specify severity level to log Java parsing exceptions when they are skipped.	SeverityLevel	error	10.18.0
+skipFileOnJavaParseException	Control whether to skip files with Java parsing exceptions.	boolean	false	10.18.0
+Examples
+For example, the following configuration fragment specifies TreeWalker a tabWidth of 4:
+
+<module name="Checker">
+  <module name="TreeWalker">
+    <property name="tabWidth" value="4"/>
+    ...
+  </module>
+</module>
+
+To integrate Checkstyle with BEA Weblogic Workshop 8.1:
+
+<module name="Checker">
+  <module name="TreeWalker">
+    <property name="fileExtensions" value="java,ejb,jpf"/>
+    ...
+  </module>
+</module>
+
+To configure TreeWalker so that it handles files with the java extension:
+
+<module name="TreeWalker">
+  <property name="fileExtensions" value="java"/>
+  ...
+</module>
+
+To configure TreeWalker so that it handles files with any extension:
+
+<module name="TreeWalker">
+  <property name="fileExtensions" value="null"/>
+  ...
+</module>
+
+OR
+
+<module name="TreeWalker">
+  <property name="fileExtensions" value=""/>
+  ...
+</module>
+
+By default, skipFileOnJavaParseException is set to false. In this case, when using new Java features that are not yet supported by Checkstyle, Checkstyle will fail to parse them, log parsing exceptions, and may halt processing, failing to analyze other files.
+
+To configure TreeWalker so that it skips files with java parsing exceptions, preventing execution from stopping on an exception and instead printing it as a violation:
+
+<module name="TreeWalker">
+   <property name="skipFileOnJavaParseException" value="true"/>
+   ...
+</module>
+
+To configure TreeWalker so that it skips files with java parsing exceptions, preventing execution from stopping on an exception and does not print it as a violation:
+
+<module name="TreeWalker">
+   <property name="skipFileOnJavaParseException" value="true"/>
+   <property name="javaParseExceptionSeverity" value="ignore"/>
+   ...
+</module>
+
+Example of Usage
+Google Style
+Sun Style
+Checkstyle Style
+Package
+com.puppycrawl.tools.checkstyle
+
+Parent Module
+Checker
+
+TreeWalker Checks
+The TreeWalker module creates a syntax tree for a Java source file and invokes its submodules, called Checks, during a walk, or traversal, of the nodes of the tree. Every node of the syntax tree has a token. A visit to a node during the traversal triggers all Checks that are configured for its token. For example, if Check MethodLength has been configured as a submodule of TreeWalker, then a visit to a node with a method or a constructor definition token triggers MethodLength to check the number of lines of the node's code block.
+
+Some Checks, such as FileLength and LineLength, apply directly to the source file and do not involve tokens of the syntax tree. Other Checks are associated with configurable sets of tokens that trigger the Checks. For example, this element configures Check MethodLength:
+
+<module name="MethodLength"/>
+
+The default token set for MethodLength is {METHOD_DEF, CTOR_DEF}, method definition and constructor definition tokens, so TreeWalker invokes MethodLength whenever it visits a node with a METHOD_DEF or a CTOR_DEF token.
+
+You specify the trigger tokens for a Check with property tokens. The value of tokens is a list that denotes a subset of the Check's tokens, as in the following element that configures Check MethodLength to check the number of lines of methods only:
+
+<module name="MethodLength">
+  <property name="tokens" value="METHOD_DEF"/>
+</module>
+
+To apply particular properties to different subsets of tokens for a Check, repeat the Check. For example, to check that the length of each method is at most 150 lines (the default value of MethodLength property max) and the length of each constructor is at most 60 lines, include the following in the TreeWalker configuration:
+
+<module name="MethodLength">
+  <property name="tokens" value="METHOD_DEF"/>
+</module>
+<module name="MethodLength">
+  <property name="tokens" value="CTOR_DEF"/>
+  <property name="max" value="60"/>
+</module>
+
+Configurations of the Checks are specified in the pages under here.
+
+Severity
+Each module has a severity property that a Checkstyle audit assigns to all violations of the check. The default severity level of a check is error.
+
+You can use the severity property to control the output of the all formatters for the command line tool and the ANT task. All output formatters does not report violations with severity level ignore, and notes violations with severity level warning. For example, according to the following configuration fragment, the plain formatter outputs warnings for translation violations:
+
+<module name="Translation">
+  <property name="severity" value="warning"/>
+</module>
+
+The XML formatter reports the severity level of every violation as an attribute of the violation's error element.
+
+tabWidth
+Each module has a tabWidth property that can specify how many spaces a tab character uses. The default width by all modules is 8 spaces. Overriding the width for a parent module, will apply those changes automatically to the children. This is only used to control the spacing when violations from modules are printed.
+
+<module name="Checker">
+  <property name="tabWidth" value="4"/>
+</module>
+
+Id
+Each module has a id property that can rename the module name to be a name defined by the user. This is used to differentiate two instances of the same Check. This custom module name should be unique for the entire configuration to prevent accidental overlapping. This custom name is required to be able to suppress violations of 1 of the checks in specific scenarios, while leaving the other unaffected. Without the custom module name, it is harder to differentiate one module's violations from the other.
+
+<module name="DescendantToken">
+  <property name="id" value="stringEqual"/>
+  <property name="tokens" value="EQUAL,NOT_EQUAL"/>
+  <property name="limitedTokens" value="STRING_LITERAL"/>
+  <property name="maximumNumber" value="0"/>
+  <property name="maximumDepth" value="1"/>
+</module>
+
+<module name="DescendantToken">
+  <property name="id" value="switchNoDefault"/>
+  <property name="tokens" value="LITERAL_SWITCH"/>
+  <property name="maximumDepth" value="2"/>
+  <property name="limitedTokens" value="LITERAL_DEFAULT"/>
+  <property name="minimumNumber" value="1"/>
+</module>
+
+Custom messages
+As of Checkstyle 5 all checks can be configured to report custom, configuration specific messages instead of the Checkstyle default messages. This can be useful in cases where the check message should reference corresponding sections in a coding style document or the default is too generic for developers to understand.
+
+An example usage is:
+
+<module name="MemberName">
+  <property name="format" value="^m[a-zA-Z0-9]*$"/>
+  <message key="name.invalidPattern"
+   value="Member ''{0}'' must start with a lowercase ''m'' (checked pattern ''{1}'')."
+   />
+</module>
+
+Each check configuration element can have zero or more message elements. Every check uses one or more distinct message keys to log violations. If you want to customize a certain message you need to specify the message key in the key attribute of the message element.
+
+The value attribute specifies the custom message pattern, as shown in the example above. Placeholders used in the default message can also be used in the custom message. Note that the message pattern must be a valid java.text.MessageFormat style pattern, so be careful about curly braces outside a placeholder definition.
+
+The obvious question is how do you know which message keys a Check uses, so that you can override them? You can examine all keys in the check's specific configuration documentation. Each check has a section called 'Violation Messages'. This section lists every key the check uses and links to the default message used by checkstyle.
+
+Filters
+A Checker module has a set of Filter submodules to filter audit events, including the violation messages fired by Checks. A Filter can accept or reject an audit event. If all Filters accept an audit event, then the Checker reports the event. If any Filter rejects an event, then the Checker does not report the event. For more information please visit filters page.
+
+Before Execution File Filters
+A Checker module has a Before Execution File Filter submodule to filter files from being processed by the utility. A Before Execution File Filter can accept or reject a file by its name. If all Before Execution File Filters accept a file, then Checker will process and validate the file. If any Before Execution File Filter rejects a file, then Checker skips over the file and acts like it does not exist. For more information, please visit the file filters page.
+
+Audit Listeners
+In addition to an audit reporter for text or XML output, a Checker can have custom AuditListeners that handle audit events. In order to use a custom listener, add a Checker submodule for the listener and its properties. For example, to configure a Checker so that it uses custom listener VerboseListener to print audit messages to a file named "audit.txt", include the following module in the configuration file:
+
+<module name="com.mycompany.listeners.VerboseListener">
+  <property name="file" value="audit.txt"/>
+</module>
+
+Packages
+Checkstyle loads a module class according to the name of a module element, and automatically appends pre-specified package prefixes to that name in its search for a loadable class. By default, Checkstyle applies packages com.puppycrawl.tools.checkstyle, com.puppycrawl.tools.checkstyle.filters, and com.puppycrawl.tools.checkstyle.checks as well as any sub-packages of com.puppycrawl.tools.checkstyle.checks that are distributed with Checkstyle. However, standard checkstyle modules are loaded with the help of inner map of their names to fully qualified names.
+
+To specify other packages to apply, create a package names XML document in a file named checkstyle_packages.xml, and provide that file in the root of the .jar containing your custom checks.
+
+Note that the support for providing a package names XML document via command line option or as an attribute of an ant Checkstyle task has been dropped with Checkstyle 5.0.
+
+A package names XML document specifies a list of package names. Here is a sample package names XML document for packages com.puppycrawl.tools.checkstyle and com.puppycrawl.tools.checkstyle.checks:
+
+<checkstyle-packages>
+  <package name="com.puppycrawl.tools.checkstyle">
+    <package name="checks"/>
+  </package>
+</checkstyle-packages>
+
+Notice that the packages are specified recursively - a child package element is a subpackage of its parent package element.
+
+Checkstyle also validates the package names XML document structure when it loads the document. DTD is available at packages_1_0.dtd
+
+For example, to incorporate modules from package com.mycompany.checks with Checkstyle modules, create the XML file below and put this file into the root of the jar file which contains your custom check modules. The XML file must be named exactly checkstyle_packages.xml:
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE checkstyle-packages PUBLIC
+  "-//Checkstyle//DTD Package Names Configuration 1.0//EN"
+  "https://checkstyle.org/dtds/packages_1_0.dtd">
+
+<checkstyle-packages>
+  <package name="com.mycompany.checks"/>
+</checkstyle-packages>
+
+Now you can configure a module of package com.mycompany.checks, say com.mycompany.checks.MethodLimitCheck, with a shortened module element in the configuration document:
+
+<module name="MethodLimit"/>
+
+Note
+As of Checkstyle 5.0 it is unnecessary to repeat the package elements for Checkstyle's packages in your custom checkstyle_packages.xml file.
+
+Configuration XML Structure
+DTD is used to validate the configuration XML document which specifies the hierarchy of modules and their properties.
+
+Checkstyle validates the configuration XML document structure when it loads the document. To validate against the latest DTD, include the following document type declaration in your configuration XML document:
+
+<!DOCTYPE module PUBLIC
+  "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+  "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+Checkstyle also strictly enforces the encoding attribute of an XML declaration. If Checkstyle rejects your configuration document's encoding, correct the value of the encoding attribute, or remove the encoding attribute entirely.
+
+For a complete example of a configuration XML document, examine files sun_checks.xml and google_checks.xml that checks the coding conventions. Example of all Checks/Modules usage could be found at checkstyle's code convention at file checkstyle-checks.xml
