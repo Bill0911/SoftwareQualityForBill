@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="306f975e-e85f-46d6-800e-94ffb1e1d1e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/TestObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/BitmapItemTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/PresentationObserverTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/SlideItemFactoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/SlideTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/SlideViewerComponentTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/TextItemTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/Presentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/Presentation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideItemFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideItemFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideViewerComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideViewerComponent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SlideItemFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlideItemFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SlideViewerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlideViewerComponent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

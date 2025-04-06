@@ -105,6 +105,7 @@ public class Presentation {
 	// Add a slide to the presentation
 	public void append(Slide slide) {
 		commandManager.executeCommand(new AddSlideCommand(this, slide));
+		currentSlideNumber = getSize() - 1;
 		notifyObservers();
 	}
 
