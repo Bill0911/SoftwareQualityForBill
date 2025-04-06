@@ -50,3 +50,8 @@ jobs:
       run: |
         cd Jabberpoint-IT
         mvn checkstyle:check
+
+    - name: Run Tests
+      run: |
+        cd Jabberpoint-IT
+        mvn test
