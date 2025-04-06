@@ -9,6 +9,6 @@
             <property name="max" value="120"/>
         </module>
         <module name="MethodName"/>
-        <module name="VariableName"/>
+        <module name="VariableNameCheck"/>
     </module>
 </module>
