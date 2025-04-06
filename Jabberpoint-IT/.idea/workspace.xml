@@ -5,7 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="306f975e-e85f-46d6-800e-94ffb1e1d1e3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jabberpoint.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkstyle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/checkstyle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/AboutBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/Accessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/AddSlideCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/BitmapItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/BitmapItemFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/ClearPresentationCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/CommandManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/DemoPresentation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/JabberPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/KeyController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/MenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/NextSlideCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/Presentation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/PresentationObserver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/PrevSlideCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SetTitleCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SetToSlideNumberCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/Slide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideItemFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideViewerComponent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideViewerFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/SlideViewerFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/Style.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/TestObserver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/TextItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/TextItemFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Jabberpoint-IT/XMLAccessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/AddSlideCommandTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/BitmapItemTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/ClearPresentationCommandTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/NextSlideCommandTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/PresentationObserverTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/PresentationTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/PrevSlideCommandTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/SetTitleCommandTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/SetToSlideNumberCommandTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/SlideItemFactoryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/SlideTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/SlideViewerComponentTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Jabberpoint-IT/TextItemTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,23 +105,27 @@
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.AddSlideCommandTest.executor": "Run",
     "JUnit.All in Jabberpoint-IT.executor": "Run",
+    "JUnit.All in jabberpoint.executor": "Run",
     "JUnit.SetToSlideNumberCommandTest.executor": "Run",
+    "Maven.jabberpoint [compile].executor": "Run",
+    "Maven.jabberpoint [install].executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/dober/Desktop/deadlineSoftware/SoftwareQualityForBill/Jabberpoint-IT",
+    "last_opened_file_path": "C:/Users/Fjodor/OneDrive/software_quality/SoftwareQualityForBill/Jabberpoint-IT",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "MavenSettings",
@@ -80,7 +140,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Jabberpoint-IT">
+  <component name="RunManager" selected="JUnit.All in jabberpoint">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JabberPoint" />
       <module name="Jabberpoint-IT" />
@@ -88,9 +148,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in Jabberpoint-IT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Jabberpoint-IT" />
+    <configuration name="All in jabberpoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jabberpoint" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -98,17 +160,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in Jabberpoint-IT" />
+        <item itemvalue="JUnit.All in jabberpoint" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -126,6 +180,9 @@
       <workItem from="1743876657256" duration="87000" />
       <workItem from="1743876815285" duration="2628000" />
       <workItem from="1743880298076" duration="4977000" />
+      <workItem from="1743954631727" duration="7000" />
+      <workItem from="1743954650445" duration="9000" />
+      <workItem from="1743954688344" duration="82000" />
     </task>
     <servers />
   </component>
