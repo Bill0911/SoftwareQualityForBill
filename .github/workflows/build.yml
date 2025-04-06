@@ -51,7 +51,21 @@ jobs:
         cd Jabberpoint-IT
         mvn checkstyle:check
 
+    # Step 7
     - name: Run Tests
       run: |
         cd Jabberpoint-IT
         mvn test
+
+    # Step 8
+    - name: Package app (.jar)
+      run: |
+        cd Jabberpoint-IT
+        mvn package
+
+    # Step 9
+    - name: Upload JAR artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: jabberpoint-jar
+        path: Jabberpoint-IT/target/*.jar
