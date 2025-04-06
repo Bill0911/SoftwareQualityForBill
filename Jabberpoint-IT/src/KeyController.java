@@ -31,6 +31,16 @@ public class KeyController extends KeyAdapter {
 			case '-':
 				presentation.prevSlide();
 				break;
+			case KeyEvent.VK_Z:
+				if ((keyEvent.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK) != 0) {
+					presentation.getCommandManager().undo(); // Undo if Ctrl+Z
+				}
+				break;
+			case KeyEvent.VK_X:
+				if ((keyEvent.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK) != 0) {
+					presentation.getCommandManager().redo(); // Redo if Ctrl+Y
+				}
+				break;
 			case 'q':
 			case 'Q':
 				System.exit(0);

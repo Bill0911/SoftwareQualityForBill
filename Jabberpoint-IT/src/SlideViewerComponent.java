@@ -18,14 +18,14 @@ import javax.swing.JFrame;
  */
 
 public class SlideViewerComponent extends JComponent implements PresentationObserver{
-		
+
 	private Slide slide; // current slide
 	private Font labelFont = null; // font for labels
 	private Presentation presentation = null; // the presentation
 	private JFrame frame = null;
-	
+
 	private static final long serialVersionUID = 227L;
-	
+
 	private static final Color BGCOLOR = Color.white;
 	private static final Color COLOR = Color.black;
 	private static final String FONTNAME = "Dialog";
@@ -35,7 +35,7 @@ public class SlideViewerComponent extends JComponent implements PresentationObse
 	private static final int YPOS = 20;
 
 	public SlideViewerComponent(JFrame frame) {
-		setBackground(BGCOLOR); 
+		setBackground(BGCOLOR);
 		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
 		this.frame = frame;
 	}
@@ -49,17 +49,6 @@ public class SlideViewerComponent extends JComponent implements PresentationObse
 
 	public Dimension getPreferredSize() {
 		return new Dimension(Slide.WIDTH, Slide.HEIGHT);
-	}
-
-	public void update(Presentation presentation, Slide data) {
-		if (data == null) {
-			repaint();
-			return;
-		}
-		this.presentation = presentation;
-		this.slide = data;
-		repaint();
-		frame.setTitle(presentation.getTitle());
 	}
 
 // draw the slide
@@ -78,17 +67,20 @@ public class SlideViewerComponent extends JComponent implements PresentationObse
 	}
 
 	@Override
-    public void update(Presentation presentation) {
-        this.presentation = presentation;
+	public void update(Presentation presentation) {
+		this.presentation = presentation;
+		this.slide = presentation.getCurrentSlide();
 
-        this.slide = presentation.getCurrentSlide();
+		if (frame != null) {
+			int slideNumber = presentation.getSlideNumber() + 1;  // Convert from 0-based to 1-based
+			String title = presentation.getTitle() + " - Slide " + slideNumber + " of " + presentation.getSize();
+			frame.setTitle(title);
+		}
 
-        if (frame != null) {
-            frame.setTitle(presentation.getTitle() + " - Slide " + (presentation.getSlideNumber() + 1) + " of " + presentation.getSize());
-        }
+		repaint();
+	}
 
-        repaint();
-    }
-	
-
+	public JFrame getFrame() {
+		return frame;
+	}
 }

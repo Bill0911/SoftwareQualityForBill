@@ -55,7 +55,6 @@ public class Presentation {
 	}
 
 	public void setToTitle(String title) {
-		System.out.println("pres.setToTitle('"+title+"')");
 		commandManager.executeCommand(new SetTitleCommand(this, title));
 		notifyObservers();
 	}
@@ -75,29 +74,24 @@ public class Presentation {
 
 	// change the current slide number and signal it to the window
 	public void setToSlideNumber(int number) {
-		System.out.println("presentation.setToSlideNumber("+number+")");
 		commandManager.executeCommand(new SetToSlideNumberCommand(this, number));
 		notifyObservers();
 	}
 
 	public void setSlideNumber(int number) {
-		System.out.println("setSlideNumber("+number+")");
-
 		currentSlideNumber = number;
 		if (slideViewComponent != null) {
-			slideViewComponent.update(this, getCurrentSlide());
+			slideViewComponent.update(this);
 		}
 		notifyObservers();
 	}
 
 	public void prevSlide() {
-		System.out.println("prevSlide~");
 		commandManager.executeCommand(new PrevSlideCommand(this));
 		notifyObservers();
 	}
 
 	public void nextSlide() {
-		System.out.println("nextSlide~");
 		commandManager.executeCommand(new NextSlideCommand(this));
 		notifyObservers();
 	}
@@ -110,8 +104,9 @@ public class Presentation {
 
 	// Add a slide to the presentation
 	public void append(Slide slide) {
-		System.out.println("pres.append()");
 		commandManager.executeCommand(new AddSlideCommand(this, slide));
+		currentSlideNumber = getSize() - 1;
+		notifyObservers();
 	}
 
 	// Get a slide with a certain slidenumber
@@ -136,5 +131,9 @@ public class Presentation {
 			showList = new ArrayList<>();
 		}
 		return showList;
+	}
+
+	public CommandManager getCommandManager() {
+		return commandManager;
 	}
 }

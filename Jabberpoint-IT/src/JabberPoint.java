@@ -13,10 +13,8 @@ public class JabberPoint {
 
         try {
             if (argv.length == 0) { // Load a demo presentation
-                System.out.println("DemoPresentation");
                 Accessor.getDemoAccessor().loadFile(presentation, "");
             } else {
-                System.out.println("XMLAccessor");
                 new XMLAccessor().loadFile(presentation, argv[0]);
             }
             presentation.setToSlideNumber(0);
