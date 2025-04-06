@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="306f975e-e85f-46d6-800e-94ffb1e1d1e3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ClassDiagramUpdated.asta" beforeDir="false" afterPath="$PROJECT_DIR$/../ClassDiagramUpdated.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClassDiagramUpdated.asta.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NewOfNewVersion2.asta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Third polling moment preparation.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../explainMethods.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../theory.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +57,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "observer",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/dober/Desktop/deadlineSoftware/SoftwareQualityForBill/Jabberpoint-IT",
     "node.js.detected.package.eslint": "true",
@@ -108,11 +114,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Presentation.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Slide.java</url>
           <line>44</line>
