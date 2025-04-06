@@ -29,10 +29,8 @@ public class JabberPoint {
 		new SlideViewerFrame(JABVERSION, presentation);
 		try {
 			if (argv.length == 0) { // een demo presentatie
-				System.out.println("DemoPresentation");
 				Accessor.getDemoAccessor().loadFile(presentation, "");
 			} else {
-				System.out.println("ZMLAccessor");
 				new XMLAccessor().loadFile(presentation, argv[0]);
 			}
 			presentation.setToSlideNumber(0);

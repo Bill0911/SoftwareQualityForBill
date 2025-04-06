@@ -14,7 +14,6 @@ public class ClearPresentationCommand implements Command {
     public void execute() {
         previousSlides = new ArrayList<>(presentation.getSlides());
         previousSlideNumber = presentation.getSlideNumber();
-        System.out.println("pres.clear()");
         presentation.getSlides().clear();
         presentation.setToSlideNumber(-1);
     }

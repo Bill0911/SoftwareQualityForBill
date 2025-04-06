@@ -58,7 +58,6 @@ public class MenuController extends MenuBar {
 		fileMenu.add(menuItem = mkMenuItem(OPEN));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				System.out.println("Open (Ctrl + O)");
 				presentation.clear();
 				Accessor xmlAccessor = new XMLAccessor();
 				try {
@@ -74,7 +73,6 @@ public class MenuController extends MenuBar {
 		fileMenu.add(menuItem = mkMenuItem(NEW));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
-				System.out.println("New (Ctrl + N)");
 				presentation.clear();
 				parent.repaint();
 			}
@@ -120,10 +118,33 @@ public class MenuController extends MenuBar {
 			}
 		});
 
+		fileMenu.add(menuItem = mkMenuItem("Undo"));
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				presentation.getCommandManager().undo();
+			}
+		});
+
+		fileMenu.add(menuItem = mkMenuItem("Redo"));
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				presentation.getCommandManager().redo();
+			}
+		});
+
+		fileMenu.add(menuItem = mkMenuItem("Rename Title"));
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String newTitle = JOptionPane.showInputDialog(parent, "Enter new title for the presentation:");
+				if (newTitle != null && !newTitle.isEmpty()) {
+					presentation.setToTitle(newTitle);  //
+				}
+			}
+		});
+
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Save (Ctrl + S)");
 				Accessor xmlAccessor = new XMLAccessor();
 				try {
 					xmlAccessor.saveFile(presentation, SAVEFILE);
